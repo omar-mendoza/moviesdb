@@ -1,0 +1,38 @@
+<div class="row">
+
+  <!-- Muestra las películas -->
+  <div class="col-xs-8 media">
+    <div ng-repeat="movie in movies">
+      <br><br>
+      <div class="media-left media-middle">
+          <img class="media-object" height="151" width="126" src="{{movie.image}}"/>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading">{{movie.title}}</h3>
+        {{movie.description}}
+      </div>
+    </div>
+  </div>
+
+  <!-- form para nuevas películas -->
+  <div class="col-xs-4">
+    <h3>Agregar</h3>
+    <div class="form-group">
+      <label>Título</label>
+      <input class="form-control" placeholder="Título" ng-model="newMovie.title">
+    </div>
+
+    <div class="form-group">
+      <label>Imagen</label>
+      <input class="form-control" placeholder="Imagen" ng-model="newMovie.image">
+    </div>
+
+    <div class="form-group">
+      <label>Descripción</label>
+      <textarea class="form-control" ng-model="newMovie.description" rows="8" cols="40"></textarea>
+    </div>
+
+    <button class="btn btn-primary" ng-click="save()">Guardar</button>
+  </div>
+  
+</div>
