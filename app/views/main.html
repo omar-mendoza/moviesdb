@@ -8,7 +8,9 @@
           <img class="media-object" height="151" width="126" src="{{movie.image}}"/>
       </div>
       <div class="media-body">
-        <h3 class="media-heading">{{movie.title}}</h3>
+        <a ng-href="#!/movie/{{movie.id}}">
+          <h3 class="media-heading">{{movie.title}}</h3>
+        </a>
         {{movie.description}}
       </div>
     </div>
@@ -34,5 +36,5 @@
 
     <button class="btn btn-primary" ng-click="save()">Guardar</button>
   </div>
-  
+
 </div>

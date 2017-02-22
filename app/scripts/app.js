@@ -18,6 +18,11 @@ angular
     'ngTouch'
   ])
   .config(function ($routeProvider) {
+    // Con locationProvider
+    // se puede modificar el hashPrefix de la url
+    // en index.html
+    // <base href="/"></base>
+
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -28,6 +33,11 @@ angular
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl',
         controllerAs: 'about'
+      })
+      .when('/movie/:id', {
+        templateUrl: 'views/movie.html',
+        controller: 'MovieCtrl',
+        controllerAs: 'movie'
       })
       .otherwise({
          redirectTo: '/'

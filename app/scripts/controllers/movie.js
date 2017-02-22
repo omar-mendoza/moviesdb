@@ -1,22 +1,20 @@
- 'use strict';
+'use strict';
 
 /**
  * @ngdoc function
- * @name moviesdbApp.controller:MainCtrl
+ * @name moviesdbApp.controller:MovieCtrl
  * @description
- * # MainCtrl
+ * # MovieCtrl
  * Controller of the moviesdbApp
  */
 angular.module('moviesdbApp')
-  .controller('MainCtrl', function ($scope) {
+  .controller('MovieCtrl', function ($scope, $routeParams) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
 
-    $scope.title = 'MoviesDB';
-    var cont = 3;
     $scope.movies = [{
       id: 1,
       title: 'The Matrix',
@@ -37,17 +35,11 @@ angular.module('moviesdbApp')
     }
   ];
 
-  // Guardará la variable newMovie
-  $scope.save = function () {
-    cont++;
-    var movie = {
-      id: cont,
-      title: $scope.newMovie.title,
-      image: $scope.newMovie.image,
-      description: $scope.newMovie.description
-    };
-    console.log(JSON.stringify(movie));
-    $scope.movies.push(movie);
-    $scope.newMovie = null;
-  };
+  var id = parseInt($routeParams.id);
+  for(var i = 0; i < $scope.movies.length; i++){
+    if($scope.movies[i].id === id) {
+      console.log(JSON.stringify($scope.movies[i]));
+      $scope.smovie = $scope.movies[i];
+    }
+  }
 });
